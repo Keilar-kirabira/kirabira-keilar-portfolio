@@ -1,0 +1,35 @@
+export const projects = [
+  {
+    id: 1,
+    title: 'Admin Dashboard',
+    description: 'A fully featured admin panel with analytics, user management, and real-time data visualization.',
+    features: ['Role-based access', 'Charts & analytics', 'Responsive layout', 'Dark mode'],
+    tech: ['React', 'Tailwind CSS', 'Recharts', 'Vite'],
+    challenge: 'Building a scalable layout system that adapts across screen sizes without breaking data tables.',
+    github: 'https://github.com/keilarkirabira',
+    demo: '#',
+    image: null, // Replace with imported screenshot
+  },
+  {
+    id: 2,
+    title: 'Moderation System',
+    description: 'Content moderation dashboard for reviewing, approving, or flagging user-submitted content.',
+    features: ['Queue management', 'Bulk actions', 'Filter & search', 'Audit logs'],
+    tech: ['React', 'JavaScript', 'Tailwind CSS'],
+    challenge: 'Designing an efficient review flow that minimizes moderator fatigue and maximizes throughput.',
+    github: 'https://github.com/keilarkirabira',
+    demo: '#',
+    image: null,
+  },
+  {
+    id: 3,
+    title: 'Chat System UI',
+    description: 'A real-time chat interface with conversation threads, emoji support, and read receipts.',
+    features: ['Real-time updates', 'Thread view', 'Emoji picker', 'Message status'],
+    tech: ['React', 'Tailwind CSS', 'Framer Motion'],
+    challenge: 'Keeping scroll position stable while new messages stream in and managing large conversation history.',
+    github: 'https://github.com/keilarkirabira',
+    demo: '#',
+    image: null,
+  },
+]
