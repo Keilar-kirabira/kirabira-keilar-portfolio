@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import keilarLogo from '../../assets/images/keilar-logo.jpeg'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -37,25 +38,24 @@ const Navbar = () => {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 h-16 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — replaced letter with image */}
         <motion.a
           href="#hero"
           whileHover={{ scale: 1.05 }}
-          className="text-white font-bold text-lg tracking-tight flex items-center gap-2"
+          className="flex items-center gap-2"
         >
-          <span className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/30">
-            K
-          </span>
-          <span>
-            Keilar<span className="text-blue-400">.</span>
-          </span>
+          <img
+            src={keilarLogo}
+            alt="Keilar Kirabira logo"
+            className="w-9 h-9 rounded-lg object-cover shadow-lg shadow-blue-500/20 ring-1 ring-white/10 hover:ring-blue-400/40 transition-all duration-200"
+          />
         </motion.a>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <a 
                 href={link.href}
                 onClick={() => handleNav(link.href)}
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
@@ -127,7 +127,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.07 }}
                 >
-                  <a
+                  <a  
                     href={link.href}
                     onClick={() => handleNav(link.href)}
                     className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
@@ -142,7 +142,7 @@ const Navbar = () => {
                 transition={{ delay: navLinks.length * 0.07 }}
                 className="pt-2"
               >
-                <a
+                <a  
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
                   className="block px-4 py-3 text-center font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-xl text-sm transition-colors"

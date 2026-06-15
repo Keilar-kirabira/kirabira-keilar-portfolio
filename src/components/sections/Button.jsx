@@ -1,8 +1,22 @@
 import { motion } from 'framer-motion'
 
-const Button = ({ children, href, variant = 'primary', onClick, type = 'button', className = '' }) => {
+const Button = ({
+  children,
+  href,
+  variant = 'primary',
+  size = 'md',
+  onClick,
+  type = 'button',
+  className = '',
+  external = false,
+}) => {
   const base =
-    'inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap'
+    'inline-flex items-center gap-2 rounded-xl font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap'
+
+  const sizes = {
+    sm: 'px-4 py-2 text-xs',
+    md: 'px-6 py-3 text-sm',
+  }
 
   const variants = {
     primary:
@@ -23,11 +37,11 @@ const Button = ({ children, href, variant = 'primary', onClick, type = 'button',
     >
       <Tag
         href={href}
-        target={href ? '_blank' : undefined}
-        rel={href ? 'noreferrer' : undefined}
+        target={href && external ? '_blank' : undefined}
+        rel={href && external ? 'noreferrer' : undefined}
         onClick={onClick}
         type={!href ? type : undefined}
-        className={`${base} ${variants[variant]} ${className}`}
+        className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
       >
         {children}
       </Tag>

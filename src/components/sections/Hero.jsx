@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion'
+import { ArrowRight, Mail, MapPin, Download } from 'lucide-react'
+import { IoChatbubbleEllipsesOutline, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
+import keilarPhoto from '../../assets/images/keilar.jpeg'
 import Button from '../../ui/Button'
 
-const floatVariants = {
-  animate: {
-    y: [0, -18, 0],
-    transition: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
-  },
-}
-
-const floatSlow = {
-  animate: {
-    y: [0, -12, 0],
-    transition: { duration: 7, repeat: Infinity, ease: 'easeInOut' },
-  },
-}
-
 const Hero = () => {
+  const handleViewWork = () => {
+    const projectsSection = document.getElementById('projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleLetsTalk = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section
       id="hero"
@@ -23,9 +26,9 @@ const Hero = () => {
     >
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-cyan-500/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
       {/* Grid overlay */}
@@ -34,30 +37,20 @@ const Hero = () => {
         style={{
           backgroundImage:
             'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+          backgroundSize: '40px 40px',
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 lg:px-24 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 lg:px-16 pt-20 pb-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+
         {/* Left — Text */}
         <div className="flex-1 text-center lg:text-left">
-          {/* Status pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Open to opportunities
-          </motion.div>
-
           {/* Greeting */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-400 text-base font-medium mb-2"
+            className="text-slate-400 text-sm font-medium mb-1"
           >
             Hi there, I'm
           </motion.p>
@@ -67,7 +60,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] mb-3"
           >
             Keilar
             <br />
@@ -77,53 +70,94 @@ const Hero = () => {
           </motion.h1>
 
           {/* Role */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex items-center gap-3 justify-center lg:justify-start mb-6"
+            className="text-slate-300 text-base font-medium tracking-wide mb-4"
           >
-            <div className="h-px w-8 bg-blue-400" />
-            <p className="text-slate-300 text-lg font-medium tracking-wide">
-              Fullstack Junior Developer
-            </p>
-          </motion.div>
+            Junior Frontend &amp; Mobile Developer
+          </motion.p>
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="text-slate-400 text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10"
+            className="text-slate-400 text-sm md:text-base leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6"
           >
-            I build clean, performant, and accessible web interfaces. Passionate about
-            React, great design systems, and shipping products that actually work.
+            I am passionate about building modern web and mobile applications. Skilled in React
+            Native, React.js, Vue.js, JavaScript, HTML, and CSS. Focused on creating responsive,
+            accessible, and user-friendly experiences.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Location & Email */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap gap-3 justify-center lg:justify-start mb-5"
+          >
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <span>Kampala, Uganda</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+              <Mail className="w-3.5 h-3.5 text-blue-400" />
+              <a
+                href="mailto:kirabirakeilarlisa@gmail.com"
+                className="hover:text-blue-400 transition-colors"
+              >
+                kirabirakeilarlisa@gmail.com
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Row 1: GitHub | LinkedIn */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65 }}
-            className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
+            className="flex flex-wrap gap-3 justify-center lg:justify-start mb-3"
           >
-            <Button href="#projects" variant="primary">
-              View My Work
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Button>
-            <Button href="#contact" variant="outline">
-              Let's Talk
+            <Button href="https://github.com/Keilar-kirabira" variant="ghost" size="sm" external>
+              <IoLogoGithub className="w-3.5 h-3.5" />
+              GitHub
             </Button>
             <Button
-              href="https://github.com/keilarkirabira"
+              href="https://www.linkedin.com/in/keilar-kirabira-9abaa2373/"
               variant="ghost"
+              size="sm"
+              external
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-              GitHub
+              <IoLogoLinkedin className="w-3.5 h-3.5" />
+              LinkedIn
+            </Button>
+          </motion.div>
+
+         
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.72 }}
+            className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
+          >
+            <Button onClick={handleLetsTalk} variant="outline" size="sm">
+              <IoChatbubbleEllipsesOutline className="w-3.5 h-3.5" />
+              Let's Talk
+            </Button>
+            <Button onClick={handleViewWork} variant="primary" size="sm">
+              View My Work
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Button>
+            <Button
+              href="https://drive.google.com/file/d/1kqaV1GKneZdEsp4K3tAl40ENk4516amK/view?usp=sharing"
+              variant="outline"
+              size="sm"
+              external
+            >
+              <Download className="w-3.5 h-3.5" />
+              Download CV
             </Button>
           </motion.div>
 
@@ -131,8 +165,8 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.75 }}
-            className="flex gap-8 justify-center lg:justify-start"
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex gap-6 justify-center lg:justify-start"
           >
             {[
               { value: '4+', label: 'Projects Built' },
@@ -140,109 +174,64 @@ const Hero = () => {
               { value: '100%', label: 'Commitment' },
             ].map((stat) => (
               <div key={stat.label} className="text-center lg:text-left">
-                <p className="text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-slate-500 mt-0.5">{stat.label}</p>
+                <p className="text-xl font-bold text-white">{stat.value}</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">{stat.label}</p>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Right — Visual card */}
-        <div className="flex-1 flex items-center justify-center w-full max-w-sm lg:max-w-md">
+        {/* Right — Large Circular Profile Photo */}
+        <div className="flex-1 flex items-start justify-center w-full lg:pt-4">
           <motion.div
-            variants={floatVariants}
-            animate="animate"
-            className="relative w-full"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex items-center justify-center"
           >
-            {/* Outer glow ring */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-cyan-500/10 rounded-3xl blur-xl" />
+            {/* Outer ambient glow */}
+            <div className="absolute w-96 h-96 lg:w-[480px] lg:h-[480px] xl:w-[560px] xl:h-[560px] rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/10 blur-3xl" />
 
-            {/* Main card */}
-            <div className="relative bg-[#111827]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
-              {/* Avatar placeholder */}
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg shadow-blue-500/30">
-                K
-              </div>
+            {/* Animated gradient ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+              className="absolute w-[340px] h-[340px] lg:w-[440px] lg:h-[440px] xl:w-[520px] xl:h-[520px] rounded-full"
+              style={{
+                background:
+                  'conic-gradient(from 0deg, #3b82f6, #06b6d4, #8b5cf6, #06b6d4, #3b82f6)',
+                padding: '2.5px',
+                borderRadius: '9999px',
+                WebkitMask:
+                  'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+                maskComposite: 'exclude',
+              }}
+            />
 
-              {/* Name & role */}
-              <h3 className="text-white font-bold text-xl mb-1">Keilar Kirabira</h3>
-              <p className="text-blue-400 text-sm font-medium mb-5">Fullstack Junior Developer</p>
+            {/* Static subtle ring */}
+            <div className="absolute w-[330px] h-[330px] lg:w-[430px] lg:h-[430px] xl:w-[510px] xl:h-[510px] rounded-full border border-blue-400/15" />
 
-              {/* Skills preview */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {['React', 'JavaScript', 'Tailwind', 'Vite'].map((s) => (
-                  <span
-                    key={s}
-                    className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              {/* Activity bar */}
-              <div className="space-y-3">
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold">
-                  Current Focus
-                </p>
-                {[
-                  { label: 'Frontend Dev', pct: 85 },
-                  { label: 'React Native', pct: 35 },
-                  { label: 'APIs', pct: 45 },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <div className="flex justify-between text-xs text-slate-400 mb-1">
-                      <span>{item.label}</span>
-                      <span>{item.pct}%</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-white/5">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${item.pct}%` }}
-                        transition={{ duration: 1.2, delay: 1 + item.pct * 0.005, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
-                      />
-                    </div>
-                  </div>
-                ))}
+            {/* Photo container */}
+            <div
+              className="relative z-10 rounded-full p-[3px]"
+              style={{
+                background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #6366f1 100%)',
+                boxShadow:
+                  '0 0 50px rgba(59,130,246,0.30), 0 0 100px rgba(6,182,212,0.12)',
+              }}
+            >
+              <div className="rounded-full overflow-hidden bg-[#0B0F19]">
+                <img
+                  src={keilarPhoto}
+                  alt="Keilar Kirabira"
+                  className="w-80 h-80 lg:w-[420px] lg:h-[420px] xl:w-[500px] xl:h-[500px] object-cover rounded-full block"
+                />
               </div>
             </div>
-
-            {/* Floating badges */}
-            <motion.div
-              variants={floatSlow}
-              animate="animate"
-              className="absolute -top-4 -right-4 bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-xl rounded-xl px-4 py-2 text-xs font-semibold text-emerald-400"
-            >
-              ✓ Available for hire
-            </motion.div>
-
-            <motion.div
-              variants={floatVariants}
-              animate="animate"
-              className="absolute -bottom-4 -left-4 bg-[#111827]/90 border border-white/10 backdrop-blur-xl rounded-xl px-4 py-2 text-xs font-semibold text-slate-300 flex items-center gap-2"
-            >
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
-              Building cool stuff
-            </motion.div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
-      >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-8 bg-gradient-to-b from-slate-500 to-transparent"
-        />
-      </motion.div>
     </section>
   )
 }
