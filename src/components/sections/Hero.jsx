@@ -41,11 +41,10 @@ const Hero = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 lg:px-16 pt-20 pb-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 lg:px-16 pt-20 pb-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
         {/* Left — Text */}
         <div className="flex-1 text-center lg:text-left">
-          {/* Greeting */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,7 +54,6 @@ const Hero = () => {
             Hi there, I'm
           </motion.p>
 
-          {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,7 +67,6 @@ const Hero = () => {
             </span>
           </motion.h1>
 
-          {/* Role */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +76,6 @@ const Hero = () => {
             Junior Frontend &amp; Mobile Developer
           </motion.p>
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,7 +83,7 @@ const Hero = () => {
             className="text-slate-400 text-sm md:text-base leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6"
           >
             I am passionate about building modern web and mobile applications. Skilled in React
-            Native, React.js, Vue.js, JavaScript, HTML, and CSS. Focused on creating responsive,
+            Native, React.js, Vue.js, JavaScript, HTML, and CSS — focused on creating responsive,
             accessible, and user-friendly experiences.
           </motion.p>
 
@@ -135,7 +131,7 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-         
+          {/* Row 2: Let's Talk | Download CV | View My Work */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,10 +142,6 @@ const Hero = () => {
               <IoChatbubbleEllipsesOutline className="w-3.5 h-3.5" />
               Let's Talk
             </Button>
-            <Button onClick={handleViewWork} variant="primary" size="sm">
-              View My Work
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Button>
             <Button
               href="https://drive.google.com/file/d/1kqaV1GKneZdEsp4K3tAl40ENk4516amK/view?usp=sharing"
               variant="outline"
@@ -158,6 +150,10 @@ const Hero = () => {
             >
               <Download className="w-3.5 h-3.5" />
               Download CV
+            </Button>
+            <Button onClick={handleViewWork} variant="primary" size="sm">
+              View My Work
+              <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </motion.div>
 
@@ -181,56 +177,34 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right — Large Circular Profile Photo */}
-        <div className="flex-1 flex items-start justify-center w-full lg:pt-4">
+        {/* Right — Circular Profile Photo, vertically centered */}
+        <div className="flex-1 flex items-center justify-center w-full">
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative flex items-center justify-center"
           >
-            {/* Outer ambient glow */}
-            <div className="absolute w-96 h-96 lg:w-[480px] lg:h-[480px] xl:w-[560px] xl:h-[560px] rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-400/10 blur-3xl" />
+            {/* Soft ambient glow */}
+            <div className="absolute w-[340px] h-[340px] lg:w-[400px] lg:h-[400px] rounded-full bg-blue-500/20 blur-3xl" />
 
-            {/* Animated gradient ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-              className="absolute w-[340px] h-[340px] lg:w-[440px] lg:h-[440px] xl:w-[520px] xl:h-[520px] rounded-full"
-              style={{
-                background:
-                  'conic-gradient(from 0deg, #3b82f6, #06b6d4, #8b5cf6, #06b6d4, #3b82f6)',
-                padding: '2.5px',
-                borderRadius: '9999px',
-                WebkitMask:
-                  'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
-              }}
-            />
-
-            {/* Static subtle ring */}
-            <div className="absolute w-[330px] h-[330px] lg:w-[430px] lg:h-[430px] xl:w-[510px] xl:h-[510px] rounded-full border border-blue-400/15" />
-
-            {/* Photo container */}
+            {/* Photo */}
             <div
-              className="relative z-10 rounded-full p-[3px]"
+              className="relative z-10 rounded-full overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #6366f1 100%)',
                 boxShadow:
-                  '0 0 50px rgba(59,130,246,0.30), 0 0 100px rgba(6,182,212,0.12)',
+                  '0 8px 40px rgba(59,130,246,0.4), 0 24px 80px rgba(6,182,212,0.2), 0 2px 16px rgba(0,0,0,0.7)',
               }}
             >
-              <div className="rounded-full overflow-hidden bg-[#0B0F19]">
-                <img
-                  src={keilarPhoto}
-                  alt="Keilar Kirabira"
-                  className="w-80 h-80 lg:w-[420px] lg:h-[420px] xl:w-[500px] xl:h-[500px] object-cover rounded-full block"
-                />
-              </div>
+              <img
+                src={keilarPhoto}
+                alt="Keilar Kirabira"
+                className="w-72 h-72 sm:w-80 sm:h-80 lg:w-[340px] lg:h-[340px] object-cover rounded-full block"
+              />
             </div>
           </motion.div>
         </div>
+
       </div>
     </section>
   )
