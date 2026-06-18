@@ -17,7 +17,7 @@ const highlights = [
   {
     Icon: Target,
     title: 'My Goals',
-    text: 'Grow into a well-rounded fullstack engineer, contribute to impactful products, and eventually build my own tech startup.',
+    text: 'To become a proficient Frontend and Mobile Developer, contribute to impactful digital products, and eventually build a technology startup that empowers young people through innovation, mentorship, and opportunities for growth.',
   },
 ]
 
