@@ -42,15 +42,29 @@ const About = () => {
               className="space-y-5 text-slate-400 leading-relaxed"
             >
               <p>
+                My journey in tech started with a simple question:{' '}
+                <span className="text-slate-200 font-medium">
+                  "How do websites actually work?"
+                </span>{' '}
+                That curiosity turned into HTML experiments, which turned into React projects,
+                which turned into a genuine passion for building things on the web.
+              </p>
+              <p>
                 I'm a{' '}
                 <span className="text-blue-400 font-medium">Junior Frontend Engineer</span>{' '}
                 experienced in building responsive web and mobile applications using React
-                Native, React.js, Vue.js, JavaScript (ES6+), HTML5, and CSS3.
+                Native, React.js, Vue.js, JavaScript (ES6+), HTML5, and CSS3. I'm skilled in
+                developing reusable UI components, Context API state management, React Hooks,
+                REST API integration, authentication systems, and mobile-first accessible
+                interfaces.
               </p>
               <p>
-                I'm skilled in developing reusable UI components, Context API state management,
-                React Hooks, REST API integration, authentication systems, and mobile-first
-                accessible interfaces.
+                Right now, I'm developing through the{' '}
+                <span className="text-blue-400 font-medium">Refactory Apprenticeship Program</span>{' '}
+                and <span className="text-blue-400 font-medium">TechCrush</span>, gaining
+                hands-on experience in Agile workflows, testing with Jest and Vitest, and Git
+                collaboration — all while focused on delivering clean, scalable, high-quality
+                frontend code on real-world software projects.
               </p>
             </motion.div>
 
