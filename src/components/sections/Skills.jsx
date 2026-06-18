@@ -1,136 +1,81 @@
 import { motion } from 'framer-motion'
+import {
+  Code2,
+  Smartphone,
+  Server,
+  Database,
+  Wrench,
+  FlaskConical,
+  Cloud,
+  Workflow,
+  Users,
+} from 'lucide-react'
 import SectionWrapper from '../../ui/SectionWrapper'
 import SectionHeading from '../../ui/SectionHeading'
+import { skills } from '../../data/skills'
 
-const highlights = [
-  {
-    icon: '🚀',
-    title: 'What I Build',
-    text: 'Clean, performant React interfaces — admin dashboards, chat systems, moderation tools, and landing pages that work beautifully on every device.',
-  },
-  {
-    icon: '📚',
-    title: "What I'm Learning",
-    text: 'Currently diving into React Native to bring my skills to mobile, and REST APIs to connect frontends to real data.',
-  },
-  {
-    icon: '🎯',
-    title: 'My Goals',
-    text: 'Grow into a well-rounded fullstack engineer, contribute to impactful products, and eventually build my own tech startup.',
-  },
-]
+const categoryMeta = {
+  Frontend: { Icon: Code2, color: 'text-blue-400', border: 'border-blue-500/15', bg: 'bg-blue-500/8' },
+  Mobile: { Icon: Smartphone, color: 'text-violet-400', border: 'border-violet-500/15', bg: 'bg-violet-500/8' },
+  'Backend & APIs': { Icon: Server, color: 'text-emerald-400', border: 'border-emerald-500/15', bg: 'bg-emerald-500/8' },
+  Databases: { Icon: Database, color: 'text-amber-400', border: 'border-amber-500/15', bg: 'bg-amber-500/8' },
+  'Tools & Technologies': { Icon: Wrench, color: 'text-sky-400', border: 'border-sky-500/15', bg: 'bg-sky-500/8' },
+  Testing: { Icon: FlaskConical, color: 'text-rose-400', border: 'border-rose-500/15', bg: 'bg-rose-500/8' },
+  Cloud: { Icon: Cloud, color: 'text-cyan-400', border: 'border-cyan-500/15', bg: 'bg-cyan-500/8' },
+  'Development Practices': { Icon: Workflow, color: 'text-indigo-400', border: 'border-indigo-500/15', bg: 'bg-indigo-500/8' },
+  'Soft Skills': { Icon: Users, color: 'text-teal-400', border: 'border-teal-500/15', bg: 'bg-teal-500/8' },
+}
 
-const About = () => {
+const Skills = () => {
+  const categories = Object.entries(skills)
+
   return (
-    <SectionWrapper id="about" className="bg-[#0F172A]/50">
+    <SectionWrapper id="skills" className="bg-[#0F172A]/50">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
-          eyebrow="About Me"
-          title="The story so far"
-          subtitle="From curiosity to code — here's a little about who I am and where I'm headed."
+          eyebrow="Skills"
+          title="What's in my toolbox"
+          subtitle="Technical skills, development practices, and the soft skills that tie it all together."
         />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left — Story */}
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-5 text-slate-400 leading-relaxed"
-            >
-              <p>
-                My journey in tech started with a simple question:{' '}
-                <span className="text-slate-200 font-medium">
-                  "How do websites actually work?"
-                </span>{' '}
-                That curiosity turned into HTML experiments, which turned into React projects,
-                which turned into a genuine passion for building things on the web.
-              </p>
-              <p>
-                I'm a self-driven{' '}
-                <span className="text-blue-400 font-medium">Fullstack Junior Developer</span>{' '}
-                focused on the frontend. I love turning designs into real, working interfaces — 
-                paying close attention to spacing, motion, and the tiny details that make a product 
-                feel polished.
-              </p>
-              <p>
-                Beyond code, I've built strong collaboration and leadership skills through
-                editorial work and team programs — skills that make me a better teammate,
-                communicator, and engineer.
-              </p>
-            </motion.div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {categories.map(([category, items], i) => {
+            const meta = categoryMeta[category] ?? categoryMeta.Frontend
+            const { Icon, color, border, bg } = meta
 
-            {/* Tech I love */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap gap-2 pt-2"
-            >
-              {['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'Vite', 'Git'].map((t) => (
-                <span
-                  key={t}
-                  className="px-3 py-1.5 rounded-lg bg-blue-500/8 border border-blue-500/15 text-blue-300 text-xs font-medium"
-                >
-                  {t}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right — Highlight cards */}
-          <div className="space-y-4">
-            {highlights.map((item, i) => (
+            return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                whileHover={{ x: 6 }}
-                className="flex gap-5 p-5 rounded-2xl bg-[#111827]/60 border border-white/5 hover:border-blue-500/20 transition-all duration-300 group"
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="p-6 rounded-2xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-all duration-300"
               >
-                <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
-                <div>
-                  <h3 className="text-white font-semibold text-base mb-1.5 group-hover:text-blue-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-9 h-9 rounded-xl ${bg} border ${border} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-4.5 h-4.5 ${color}`} strokeWidth={1.75} />
+                  </div>
+                  <h3 className="text-white font-semibold text-sm">{category}</h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/8 text-slate-300 text-xs font-medium"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
-            ))}
-          </div>
+            )
+          })}
         </div>
-
-        {/* Fun facts row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {[
-            { emoji: '☕', label: 'Coffee-fuelled coder' },
-            { emoji: '🌍', label: 'Based in Uganda' },
-            { emoji: '🎨', label: 'Design-minded dev' },
-            { emoji: '📱', label: 'Mobile-first thinker' },
-          ].map((fact) => (
-            <div
-              key={fact.label}
-              className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center"
-            >
-              <span className="text-2xl">{fact.emoji}</span>
-              <span className="text-slate-400 text-xs font-medium">{fact.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </SectionWrapper>
   )
 }
 
-export default About
+export default Skills

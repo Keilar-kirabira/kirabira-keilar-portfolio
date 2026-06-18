@@ -4,9 +4,8 @@ import SectionHeading from '../../ui/SectionHeading'
 import { experience } from '../../data/experience'
 
 const typeColors = {
-  Leadership: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  Editorial: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
-  Collaboration: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+  'Frontend Developer': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  'QA & Scrum': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
 }
 
 const Experience = () => {
@@ -16,7 +15,7 @@ const Experience = () => {
         <SectionHeading
           eyebrow="Experience"
           title="Beyond the code"
-          subtitle="Leadership, collaboration, and real-world teamwork that shaped how I work."
+          subtitle="Where I'm sharpening my craft through real-world projects and Agile teams."
         />
 
         {/* Timeline */}
